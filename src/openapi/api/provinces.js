@@ -1,21 +1,21 @@
 module.exports = {
-    '/api/clubes': {
+    '/api/provinces': {
         get: {
             security: [],
-            summary: 'List clubes',
+            summary: 'List provinces',
             parameters: [
                 {
                     in: 'query',
                     name: 'code',
                     schema:{type: 'string',
                     pattern: '^[A-Z]{2}$'},
-                    description: 'Código de club solitado',
+                    description: 'Código de provinces solitado',
    
                 }                                   
             ],
             responses: {
                 200: {
-                    description: 'list of clubes',
+                    description: 'list of provinces',
                     content:{
                         'application/json':{
                             schema:{
@@ -41,16 +41,16 @@ module.exports = {
             }
         }
     },
-    '/api/clubes/{id}': {
+    '/api/provinces/{id}': {
         put: {
             security: [],
-            summary: 'List clubes',
+            summary: 'List provinces',
             parameters: [
                 {
                     in: 'path',
                     name: 'id',
                     schema:{type: 'string'},
-                    description: 'Modificar club solicitado',
+                    description: 'Modificar provinces solicitado',
                     required: true
                 }
             ],
@@ -75,7 +75,7 @@ module.exports = {
             },
             responses: {
                 200: {
-                    description: 'list of clubes',
+                    description: 'list of provinces',
                     content:{
                         'application/json':{
                             schema:{

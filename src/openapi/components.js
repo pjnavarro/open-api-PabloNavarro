@@ -26,6 +26,54 @@ module.exports = {
                 format: 'uuid'
             }
         },
+        Cars: {
+            type: 'object',
+            properties: {
+                id: {
+                    type: 'string',
+                    format: 'uuid',
+                    nullable: true
+                },
+                name: {type: 'string'},
+                code: {type: 'string'}
+            }
+        },
+        Provinces: {
+            type: 'object',
+            properties: {
+                id: {
+                    type: 'string',
+                    format: 'uuid',
+                    nullable: true
+                },
+                name: {type: 'string'},
+                code: {type: 'string'}
+            }
+        },
+        Clubes: {
+            type: 'object',
+            properties: {
+                id: {
+                    type: 'string',
+                    format: 'uuid',
+                    nullable: true
+                },
+                name: {type: 'string'},
+                code: {type: 'string'}
+            }
+        },
+        Country: {
+            type: 'object',
+            properties: {
+                id: {
+                    type: 'string',
+                    format: 'uuid',
+                    nullable: true
+                },
+                name: {type: 'string'},
+                code: {type: 'string'}
+            }
+        },
         Error: {
             type: 'object',
             required: [

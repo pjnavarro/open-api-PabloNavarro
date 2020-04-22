@@ -2,8 +2,13 @@ const {ClubesController} = include ('controllers');
 
 module.exports = router => {
     router.route('/')
-    .get(ClubesController.fetch)
-    .put(ClubesController.update);
+        .get(ClubesController.fetch);
+
+    router.route('/:id')
+        .put(ClubesController.update);
     return router;
 };
 
+
+
+   

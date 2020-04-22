@@ -1,6 +1,6 @@
 exports.up = function(knex) {
     return knex.schema
-      .createTable('clubes', function (table) {
+      .createTable('cars', function (table) {
          table.string('id');
          table.string('name', 255);
          table.string('code', 5);
@@ -14,4 +14,4 @@ exports.up = function(knex) {
   };
   
   exports.down = function(knex) {
-    return knex.schema.dropTable("clubes")};
+    return knex.schema.dropTable("cars")};

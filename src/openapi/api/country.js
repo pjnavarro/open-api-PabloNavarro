@@ -1,21 +1,21 @@
 module.exports = {
-    '/api/clubes': {
+    '/api/country': {
         get: {
             security: [],
-            summary: 'List clubes',
+            summary: 'List country',
             parameters: [
                 {
                     in: 'query',
                     name: 'code',
                     schema:{type: 'string',
                     pattern: '^[A-Z]{2}$'},
-                    description: 'Código de club solitado',
+                    description: 'Código de country solitado',
    
                 }                                   
             ],
             responses: {
                 200: {
-                    description: 'list of clubes',
+                    description: 'list of country',
                     content:{
                         'application/json':{
                             schema:{
@@ -41,16 +41,16 @@ module.exports = {
             }
         }
     },
-    '/api/clubes/{id}': {
+    '/api/country/{id}': {
         put: {
             security: [],
-            summary: 'List clubes',
+            summary: 'List country',
             parameters: [
                 {
                     in: 'path',
                     name: 'id',
                     schema:{type: 'string'},
-                    description: 'Modificar club solicitado',
+                    description: 'Modificar country solicitado',
                     required: true
                 }
             ],
@@ -75,7 +75,7 @@ module.exports = {
             },
             responses: {
                 200: {
-                    description: 'list of clubes',
+                    description: 'list of country',
                     content:{
                         'application/json':{
                             schema:{

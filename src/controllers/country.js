@@ -1,16 +1,16 @@
-const {Clubes} = include('models');
-class ClubesController  {
+const {Country} = include('models');
+class CountryController  {
     static async fetch (req, res, next){
         try{
-            const clubes = await Clubes.find(req.query);
-            res.send(clubes);
+            const country = await Country.find(req.query);
+            res.send(country);
         } catch (error) {
             next (error);
         }
     }
     static async update (req, res, next){
         try {
-            const result = await Clubes.updateOne({id: req.params.id}, req.body);
+            const result = await Country.updateOne({id: req.params.id}, req.body);
             res.send(result);
         } catch (error) {
             next (error);
@@ -18,6 +18,4 @@ class ClubesController  {
     }
 }
 
-module.exports = ClubesController;
-
-
+module.exports = CountryController;
