@@ -1,8 +1,8 @@
 module.exports = {
-    '/api/clubes': {
+    '/api/persons': {
         get: {
             security: [],
-            summary: 'List Clubes',
+            summary: 'List Persons',
             parameters: [
                 {
                     in: 'query',
@@ -11,17 +11,17 @@ module.exports = {
                         type: 'string',
                         pattern: '^[A-Z]{2}$'
                     },
-                    description: 'Código del club solicitado'
+                    description: 'Código de país solicitado'
                 }
             ],
             responses: {
                 200: {
-                    description: 'list of Clubes',
+                    description: 'list of Persons',
                     content: {
                         'application/json': {
                             schema: {
                                 type: 'array',
-                                items: {$ref: '#/components/schemas/Clubes'}
+                                items: {$ref: '#/components/schemas/Persons'}
                             }
                         }
                     }
@@ -37,11 +37,11 @@ module.exports = {
             requestBody: {
                 description: 'Optional description in *Markdown*',
                 required: true,
-                content: {'application/json': {schema: {$ref: '#/components/schemas/Clubes'}}}
+                content: {'application/json': {schema: {$ref: '#/components/schemas/Persons'}}}
             },
             responses: {
                 200: {
-                    description: 'list of Clubes',
+                    description: 'list of Persons',
                     content: {
                         'application/json': {
                             schema: {
@@ -58,7 +58,7 @@ module.exports = {
             }
         }
     },
-    '/api/clubes/{id}': {
+    '/api/persons/{id}': {
         get: {
             security: [],
             parameters: [
@@ -70,13 +70,13 @@ module.exports = {
                         format: 'uuid'
                     },
                     required: true,
-                    description: 'Id del club solicitado'
+                    description: 'Id de la persona solicitada'
                 }
             ],
             responses: {
                 200: {
-                    description: 'list of Clubes',
-                    content: {'application/json': {schema: {$ref: '#/components/schemas/Clubes'}}}
+                    description: 'list of Persons',
+                    content: {'application/json': {schema: {$ref: '#/components/schemas/Persons'}}}
                 },
                 default: {
                     description: 'Error',
@@ -95,13 +95,13 @@ module.exports = {
                         format: 'uuid'
                     },
                     required: true,
-                    description: 'Id del club solicitado'
+                    description: 'Id de la persona solicitada'
                 }
             ],
             requestBody: {
                 description: 'Optional description in *Markdown*',
                 required: true,
-                content: {'application/json': {schema: {$ref: '#/components/schemas/Clubes'}}}
+                content: {'application/json': {schema: {$ref: '#/components/schemas/Persons'}}}
             },
             responses: {
                 200: {
@@ -132,12 +132,12 @@ module.exports = {
                         format: 'uuid'
                     },
                     required: true,
-                    description: 'Id del club solicitado'
+                    description: 'Id de la persona solicitada'
                 }
             ],
             responses: {
                 200: {
-                    description: 'list of Clubes',
+                    description: 'list of Persons',
                     content: {
                         'application/json': {
                             schema: {

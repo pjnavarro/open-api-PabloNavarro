@@ -1,14 +1,18 @@
 const {CountryController} = include ('controllers');
 
 module.exports = router => {
+
     router.route('/')
-        .get(CountryController.fetch);
+        .get(CountryController.fetch)
+        .post(CountryController.create);
 
     router.route('/:id')
-        .put(CountryController.update);
+        .get(CountryController.fetchOne)
+        .put(CountryController.save)
+        .delete(CountryController.delete);
+
     return router;
 };
-
 
 
    

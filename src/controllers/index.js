@@ -3,5 +3,6 @@ module.exports = {
     CountryController: require('./country'),
     ProvincesController: require('./provinces'),
     CarsController: require('./cars'),
+    PersonsController: require('./persons'),
     StatusController: require('./status')
 };

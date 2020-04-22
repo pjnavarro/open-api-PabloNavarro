@@ -1,19 +1,56 @@
 const {Clubes} = include('models');
 class ClubesController  {
-    static async fetch (req, res, next){
-        try{
+    static async fetch(req, res, next) {
+        try {
             const clubes = await Clubes.find(req.query);
             res.send(clubes);
         } catch (error) {
-            next (error);
+            next(error);
         }
     }
-    static async update (req, res, next){
+
+    static async fetchOne(req, res, next) {
         try {
-            const result = await Clubes.updateOne({id: req.params.id}, req.body);
-            res.send(result);
+            const clubes = await Clubes.findOne(req.params);
+            res.send(clubes);
         } catch (error) {
-            next (error);
+            next(error);
+        }
+    }
+
+    static async create(req, res, next) {
+        try {
+            const result = await Clubes.insertOne(req.body);
+            res.send({
+                success:true,
+                result
+            });
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    static async save(req, res, next) {
+        try {
+            const result = await Clubes.updateOne(req.params, req.body);
+            res.send({
+                success:true,
+                result
+            });
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    static async delete(req, res, next) {
+        try {
+            const result = await Clubes.deleteOne(req.params.id);
+            res.send({
+                success:true,
+                result
+            });
+        } catch (error) {
+            next(error);
         }
     }
 }

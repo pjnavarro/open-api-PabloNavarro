@@ -1,14 +1,17 @@
 const {ProvincesController} = include ('controllers');
 
 module.exports = router => {
+
     router.route('/')
-        .get(ProvincesController.fetch);
+        .get(ProvincesController.fetch)
+        .post(ProvincesController.create);
 
     router.route('/:id')
-        .put(ProvincesController.update);
+        .get(ProvincesController.fetchOne)
+        .put(ProvincesController.save)
+        .delete(ProvincesController.delete);
+
     return router;
 };
-
-
 
    

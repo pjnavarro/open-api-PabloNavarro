@@ -1,9 +1,10 @@
-const {Cars} = include('models');
-class CarsController  {
+const {Persons} = include('models');
+
+class PersonsController {
     static async fetch(req, res, next) {
         try {
-            const cars = await Cars.find(req.query);
-            res.send(cars);
+            const persons = await Persons.find(req.query);
+            res.send(persons);
         } catch (error) {
             next(error);
         }
@@ -11,7 +12,7 @@ class CarsController  {
 
     static async fetchOne(req, res, next) {
         try {
-            const cars = await Cars.findOne(req.params);
+            const persons = await Persons.findOne(req.params);
             res.send(persons);
         } catch (error) {
             next(error);
@@ -20,7 +21,7 @@ class CarsController  {
 
     static async create(req, res, next) {
         try {
-            const result = await Cars.insertOne(req.body);
+            const result = await Persons.insertOne(req.body);
             res.send({
                 success:true,
                 result
@@ -32,7 +33,7 @@ class CarsController  {
 
     static async save(req, res, next) {
         try {
-            const result = await Cars.updateOne(req.params, req.body);
+            const result = await Persons.updateOne(req.params, req.body);
             res.send({
                 success:true,
                 result
@@ -44,7 +45,7 @@ class CarsController  {
 
     static async delete(req, res, next) {
         try {
-            const result = await Cars.deleteOne(req.params.id);
+            const result = await Persons.deleteOne(req.params.id);
             res.send({
                 success:true,
                 result
@@ -55,4 +56,4 @@ class CarsController  {
     }
 }
 
-module.exports = CarsController;
+module.exports = PersonsController;

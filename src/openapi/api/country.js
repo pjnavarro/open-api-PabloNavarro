@@ -2,39 +2,56 @@ module.exports = {
     '/api/country': {
         get: {
             security: [],
-            summary: 'List country',
+            summary: 'List Country',
             parameters: [
                 {
                     in: 'query',
                     name: 'code',
-                    schema:{type: 'string',
-                    pattern: '^[A-Z]{2}$'},
-                    description: 'Código de country solitado',
-   
-                }                                   
+                    schema: {
+                        type: 'string',
+                        pattern: '^[A-Z]{2}$'
+                    },
+                    description: 'Código del país solicitado'
+                }
             ],
             responses: {
                 200: {
-                    description: 'list of country',
-                    content:{
-                        'application/json':{
-                            schema:{
+                    description: 'list of Country',
+                    content: {
+                        'application/json': {
+                            schema: {
                                 type: 'array',
-                                items: {
-                                    type: 'object',
-                                    properties:{
-                                        id:{
-                                            type:'string',
-                                            format: 'uuid'
-                                        },
-                                        name:{type: 'string'}
-                                    }
-                                } 
+                                items: {$ref: '#/components/schemas/Country'}
                             }
                         }
                     }
                 },
-                default:{
+                default: {
+                    description: 'Error',
+                    content: {'application/json': {schema: {$ref: '#/components/schemas/Country'}}}
+                }
+            }
+        },
+        post: {
+            security: [],
+            requestBody: {
+                description: 'Optional description in *Markdown*',
+                required: true,
+                content: {'application/json': {schema: {$ref: '#/components/schemas/Country'}}}
+            },
+            responses: {
+                200: {
+                    description: 'list of Country',
+                    content: {
+                        'application/json': {
+                            schema: {
+                                type: 'object',
+                                properties: {}
+                            }
+                        }
+                    }
+                },
+                default: {
                     description: 'Error',
                     content: {'application/json': {schema: {$ref: '#/components/schemas/Error'}}}
                 }
@@ -42,65 +59,99 @@ module.exports = {
         }
     },
     '/api/country/{id}': {
-        put: {
+        get: {
             security: [],
-            summary: 'List country',
             parameters: [
                 {
                     in: 'path',
                     name: 'id',
-                    schema:{type: 'string'},
-                    description: 'Modificar country solicitado',
-                    required: true
+                    schema: {
+                        type: 'string',
+                        format: 'uuid'
+                    },
+                    required: true,
+                    description: 'Id del pais solicitado'
+                }
+            ],
+            responses: {
+                200: {
+                    description: 'list of Country',
+                    content: {'application/json': {schema: {$ref: '#/components/schemas/Country'}}}
+                },
+                default: {
+                    description: 'Error',
+                    content: {'application/json': {schema: {$ref: '#/components/schemas/Error'}}}
+                }
+            }
+        },
+        put: {
+            security: [],
+            parameters: [
+                {
+                    in: 'path',
+                    name: 'id',
+                    schema: {
+                        type: 'string',
+                        format: 'uuid'
+                    },
+                    required: true,
+                    description: 'Id del pais solicitado'
                 }
             ],
             requestBody: {
-                description: 'Optional description in Markdown',
+                description: 'Optional description in *Markdown*',
                 required: true,
-                content: {
-                    'application/json': {
-                        schema: {
-                            type: 'object',
-                            properties: {
-                                name: {type: 'string'},
-                                id: {
-                                    type: 'string',
-                                    nullable: true
-                                }
-                            }
-
-                        }
-                    }
-                }
+                content: {'application/json': {schema: {$ref: '#/components/schemas/Country'}}}
             },
             responses: {
                 200: {
-                    description: 'list of country',
-                    content:{
-                        'application/json':{
-                            schema:{
-                                type: 'array',
-                                items: {
-                                    type: 'object',
-                                    properties:{
-                                        code:{
-                                            type:'string',
-                                            format: 'uuid'
-                                        },
-                                        name:{type: 'string'}
-                                    }
-                                }
+                    description: 'list of Country',
+                    content: {
+                        'application/json': {
+                            schema: {
+                                type: 'object',
+                                properties: {}
                             }
                         }
                     }
-                }, 
-                 default:{
+                },
+                default: {
+                    description: 'Error',
+                    content: {'application/json': {schema: {$ref: '#/components/schemas/Error'}}}
+                }
+            }
+        },
+        delete: {
+            security: [],
+            parameters: [
+                {
+                    in: 'path',
+                    name: 'id',
+                    schema: {
+                        type: 'string',
+                        format: 'uuid'
+                    },
+                    required: true,
+                    description: 'Id del pais solicitado'
+                }
+            ],
+            responses: {
+                200: {
+                    description: 'list of Country',
+                    content: {
+                        'application/json': {
+                            schema: {
+                                type: 'object',
+                                properties: {}
+                            }
+                        }
+                    }
+                },
+                default: {
                     description: 'Error',
                     content: {'application/json': {schema: {$ref: '#/components/schemas/Error'}}}
                 }
             }
         }
-    },
-};  
-
-
+    }
+};
