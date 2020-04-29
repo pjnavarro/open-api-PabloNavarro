@@ -2,8 +2,8 @@ const {Provinces} = include('models');
 class ProvincesController  {
     static async fetch(req, res, next) {
         try {
-            const privinces = await Provinces.find(req.query);
-            res.send(persons);
+            const provinces = await Provinces.find(req.query);
+            res.send(provinces);
         } catch (error) {
             next(error);
         }
@@ -11,8 +11,8 @@ class ProvincesController  {
 
     static async fetchOne(req, res, next) {
         try {
-            const privinces = await Provinces.findOne(req.params);
-            res.send(persons);
+            const provinces = await Provinces.findOne(req.params);
+            res.send(provinces);
         } catch (error) {
             next(error);
         }

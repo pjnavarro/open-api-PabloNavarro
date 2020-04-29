@@ -105,7 +105,7 @@ module.exports = {
             },
             responses: {
                 200: {
-                    description: 'list of Persons',
+                    description: 'list of Clubes',
                     content: {
                         'application/json': {
                             schema: {

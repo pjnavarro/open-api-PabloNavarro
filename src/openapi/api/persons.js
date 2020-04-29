@@ -11,7 +11,7 @@ module.exports = {
                         type: 'string',
                         pattern: '^[A-Z]{2}$'
                     },
-                    description: 'Código de país solicitado'
+                    description: 'Código de persona solicitado'
                 }
             ],
             responses: {

@@ -9,7 +9,7 @@
     {"name": "Formosa", "code":"AF"},
     {"name": "Jujuy", "code":"AJ"},
     {"name": "La Pampa", "code":"AL"},
-    {"name": "La Rioja", "code": "AJ"},
+    {"name": "La Rioja", "code": "ZZ"},
     {"name": "Mendoza", "code": "AM"},
     {"name": "Neuquen", "code":"AN"},
     {"name": "Provincia de Buenos Aires", "code":"AB"},
